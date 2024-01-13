@@ -1,4 +1,6 @@
-# Mr. Fish
+# MCAutoFish
+A fork of Mr. Fish fixing support for Minecraft Bedrock Edition and making some other minor improvements, such as efficiency, timing, translation
+
 Mr. Fish is a free fishing bot for Minecraft. It uses sound to operate.
 
 Have fun!
