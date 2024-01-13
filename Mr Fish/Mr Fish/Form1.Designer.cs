@@ -47,6 +47,8 @@
             this.tssl_startTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbl_sound_txt = new System.Windows.Forms.Label();
             this.tt_main = new System.Windows.Forms.ToolTip(this.components);
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblAbout = new System.Windows.Forms.LinkLabel();
             this.statStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,18 +56,18 @@
             // 
             this.cb_processes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_processes.FormattingEnabled = true;
-            this.cb_processes.Location = new System.Drawing.Point(15, 25);
+            this.cb_processes.Location = new System.Drawing.Point(15, 24);
             this.cb_processes.Name = "cb_processes";
             this.cb_processes.Size = new System.Drawing.Size(278, 21);
             this.cb_processes.Sorted = true;
             this.cb_processes.TabIndex = 0;
-            this.tt_main.SetToolTip(this.cb_processes, "Bitte hier den Minecraft Prozess auswählen.");
+            this.tt_main.SetToolTip(this.cb_processes, "Please select the Minecraft process here.");
             this.cb_processes.SelectedIndexChanged += new System.EventHandler(this.cb_processes_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 1;
@@ -73,7 +75,7 @@
             // 
             // pb_audio
             // 
-            this.pb_audio.Location = new System.Drawing.Point(15, 90);
+            this.pb_audio.Location = new System.Drawing.Point(15, 89);
             this.pb_audio.Name = "pb_audio";
             this.pb_audio.Size = new System.Drawing.Size(278, 8);
             this.pb_audio.TabIndex = 2;
@@ -82,23 +84,22 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 10;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // btn_calibrate
             // 
-            this.btn_calibrate.Location = new System.Drawing.Point(15, 162);
+            this.btn_calibrate.Location = new System.Drawing.Point(15, 161);
             this.btn_calibrate.Name = "btn_calibrate";
             this.btn_calibrate.Size = new System.Drawing.Size(278, 23);
             this.btn_calibrate.TabIndex = 4;
-            this.btn_calibrate.Text = "Reset display";
-            this.tt_main.SetToolTip(this.btn_calibrate, "Setzt die gemessene Lautstärke zurück.");
+            this.btn_calibrate.Text = "Reset loudest volume";
+            this.tt_main.SetToolTip(this.btn_calibrate, "Reset the loudest measured volume.");
             this.btn_calibrate.UseVisualStyleBackColor = true;
             this.btn_calibrate.Click += new System.EventHandler(this.btn_calibrate_Click);
             // 
             // btn_start
             // 
-            this.btn_start.Location = new System.Drawing.Point(15, 133);
+            this.btn_start.Location = new System.Drawing.Point(15, 132);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(134, 23);
             this.btn_start.TabIndex = 5;
@@ -108,7 +109,7 @@
             // 
             // btn_stop
             // 
-            this.btn_stop.Location = new System.Drawing.Point(159, 133);
+            this.btn_stop.Location = new System.Drawing.Point(159, 132);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(134, 23);
             this.btn_stop.TabIndex = 6;
@@ -118,11 +119,11 @@
             // 
             // tb_volume
             // 
-            this.tb_volume.Location = new System.Drawing.Point(159, 104);
+            this.tb_volume.Location = new System.Drawing.Point(159, 103);
             this.tb_volume.Name = "tb_volume";
             this.tb_volume.Size = new System.Drawing.Size(134, 20);
             this.tb_volume.TabIndex = 7;
-            this.tb_volume.Text = "3";
+            this.tb_volume.Text = "30";
             this.tb_volume.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tt_main.SetToolTip(this.tb_volume, "Lautstärke, bei welcher die Angel eingeholt werden soll.");
             this.tb_volume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_volume_KeyPress);
@@ -152,17 +153,17 @@
             // lbl_maxVol_txt
             // 
             this.lbl_maxVol_txt.AutoSize = true;
-            this.lbl_maxVol_txt.Location = new System.Drawing.Point(12, 53);
+            this.lbl_maxVol_txt.Location = new System.Drawing.Point(12, 52);
             this.lbl_maxVol_txt.Name = "lbl_maxVol_txt";
-            this.lbl_maxVol_txt.Size = new System.Drawing.Size(139, 13);
+            this.lbl_maxVol_txt.Size = new System.Drawing.Size(134, 13);
             this.lbl_maxVol_txt.TabIndex = 10;
-            this.lbl_maxVol_txt.Text = "Loudest meassured volume:";
-            this.tt_main.SetToolTip(this.lbl_maxVol_txt, "Highest currently meassured volume. Use this to calibrate the trigger volume.");
+            this.lbl_maxVol_txt.Text = "Loudest measured volume:";
+            this.tt_main.SetToolTip(this.lbl_maxVol_txt, "Highest currently measured volume. Use this to calibrate the trigger volume.");
             // 
             // lbl_curVol_txt
             // 
             this.lbl_curVol_txt.AutoSize = true;
-            this.lbl_curVol_txt.Location = new System.Drawing.Point(12, 74);
+            this.lbl_curVol_txt.Location = new System.Drawing.Point(12, 73);
             this.lbl_curVol_txt.Name = "lbl_curVol_txt";
             this.lbl_curVol_txt.Size = new System.Drawing.Size(81, 13);
             this.lbl_curVol_txt.TabIndex = 11;
@@ -174,7 +175,7 @@
             this.statStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssl_status,
             this.tssl_startTime});
-            this.statStrip.Location = new System.Drawing.Point(0, 197);
+            this.statStrip.Location = new System.Drawing.Point(0, 199);
             this.statStrip.Name = "statStrip";
             this.statStrip.Size = new System.Drawing.Size(307, 22);
             this.statStrip.SizingGrip = false;
@@ -184,8 +185,8 @@
             // tssl_status
             // 
             this.tssl_status.Name = "tssl_status";
-            this.tssl_status.Size = new System.Drawing.Size(55, 17);
-            this.tssl_status.Text = "waiting...";
+            this.tssl_status.Size = new System.Drawing.Size(57, 17);
+            this.tssl_status.Text = "Waiting...";
             // 
             // tssl_startTime
             // 
@@ -195,18 +196,35 @@
             // lbl_sound_txt
             // 
             this.lbl_sound_txt.AutoSize = true;
-            this.lbl_sound_txt.Location = new System.Drawing.Point(12, 107);
+            this.lbl_sound_txt.Location = new System.Drawing.Point(12, 106);
             this.lbl_sound_txt.Name = "lbl_sound_txt";
             this.lbl_sound_txt.Size = new System.Drawing.Size(80, 13);
             this.lbl_sound_txt.TabIndex = 15;
             this.lbl_sound_txt.Text = "Trigger volume:";
             this.tt_main.SetToolTip(this.lbl_sound_txt, "Lautstärke, bei welcher die Angel eingeholt werden soll.");
             // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // lblAbout
+            // 
+            this.lblAbout.AutoSize = true;
+            this.lblAbout.Location = new System.Drawing.Point(265, 204);
+            this.lblAbout.Name = "lblAbout";
+            this.lblAbout.Size = new System.Drawing.Size(35, 13);
+            this.lblAbout.TabIndex = 16;
+            this.lblAbout.TabStop = true;
+            this.lblAbout.Text = "About";
+            this.lblAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAbout_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 219);
+            this.ClientSize = new System.Drawing.Size(307, 221);
+            this.Controls.Add(this.lblAbout);
             this.Controls.Add(this.lbl_sound_txt);
             this.Controls.Add(this.statStrip);
             this.Controls.Add(this.lbl_curVol_txt);
@@ -222,7 +240,7 @@
             this.Controls.Add(this.cb_processes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Mr. Fish";
+            this.Text = "MCAutoFish";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statStrip.ResumeLayout(false);
             this.statStrip.PerformLayout();
@@ -250,6 +268,8 @@
         private System.Windows.Forms.Label lbl_sound_txt;
         private System.Windows.Forms.ToolTip tt_main;
         private System.Windows.Forms.ToolStripStatusLabel tssl_startTime;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel lblAbout;
     }
 }
 

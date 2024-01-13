@@ -1,0 +1,36 @@
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\Mr Fish.exe.config
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\Mr Fish.exe
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\Mr Fish.pdb
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\Costura.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\CSCore.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Asio.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Core.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Midi.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Wasapi.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.WinForms.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.WinMM.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\Costura.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\CSCore.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Asio.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Core.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Midi.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.Wasapi.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.WinForms.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\NAudio.WinMM.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr Fish.csproj.AssemblyReference.cache
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr_Fish.Form1.resources
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr_Fish.Properties.Resources.resources
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr Fish.csproj.GenerateResource.cache
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr Fish.csproj.CoreCompileInputs.cache
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr Fish.csproj.Fody.CopyLocal.cache
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr Fish.csproj.CopyComplete
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr Fish.exe
+C:\Users\Ninka_\Desktop\Mr.-Fish-master\Mr Fish\Mr Fish\obj\Debug\Mr Fish.pdb

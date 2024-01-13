@@ -5,6 +5,7 @@ using System.Diagnostics;
 using CSCore.CoreAudioAPI;
 using System.Threading;
 using System.Threading.Tasks;
+using MCAutoFish;
 
 namespace Mr_Fish
 {
@@ -15,12 +16,12 @@ namespace Mr_Fish
         static public Thread botThread;
         static public bool active = false;
         static public int pID = 0;
+        static public Int64 allTimeFish = 0;
         private DateTime startTime;
 
         [DllImport("user32.dll")]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-        [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
         [DllImport("user32.dll")]
         public static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
@@ -35,6 +36,14 @@ namespace Mr_Fish
         private void Form1_Load(object sender, EventArgs e)
         {
             addProcesses();
+            try
+            {
+                allTimeFish = MCAutoFish.Settings.Get<Int64>("TotalFish");
+            }
+            catch
+            {
+
+            }
         }
 
         private void addProcesses()
@@ -42,16 +51,16 @@ namespace Mr_Fish
             Process[] processlist = Process.GetProcesses();
             foreach (Process theprocess in processlist)
             {
-                if (theprocess.MainWindowTitle != "")
+                if (theprocess.ProcessName.Contains("Minecraft"))
                 {
-                    var txt = String.Format("{0} - {1}", theprocess.MainWindowTitle, theprocess.ProcessName);
+                    var txt = String.Format("{0} - {1}", theprocess.ProcessName, theprocess.Id);
                     var pID = theprocess.Id;
                     var i = cb_processes.Items.Add(new Item(txt, pID));
 
                     if (txt.Contains("Minecraft") && txt != "Minecraft Launcher")
                     {
                         cb_processes.SelectedIndex = i;
-                        tssl_status.Text = "Minecraft found...";
+                        tssl_status.Text = "Minecraft found!";
                     }
                 }
             }
@@ -60,9 +69,8 @@ namespace Mr_Fish
         {
             try
             {
-                send_rightclick(pID);
                 var oVol = 0;
-                System.Threading.Thread.Sleep(4000);
+                System.Threading.Thread.Sleep(1500);
                 while (oVol <= int.Parse(tb_volume.Text) && active)
                 {
                     var cVol = getVolume();
@@ -72,8 +80,11 @@ namespace Mr_Fish
                     }
                 }
 
-                send_rightclick(pID);
+                send_rightclick();
+                System.Threading.Thread.Sleep(200);
+                send_rightclick();
                 fished = fished + 1;
+                MCAutoFish.Settings.Set("TotalFish", fished + allTimeFish);
             }
             catch { }
         }
@@ -89,7 +100,7 @@ namespace Mr_Fish
         {
             int ret = 0;
             Item item;
-            item = (Item) GetControlPropertyThreadSafe(cb_processes, t => t.SelectedItem);
+            item = (Item)GetControlPropertyThreadSafe(cb_processes, t => t.SelectedItem);
 
 
             if (item.Name != null)
@@ -112,6 +123,9 @@ namespace Mr_Fish
 
             return ret;
         }
+
+
+
         public static U GetControlPropertyThreadSafe<T, U>(T control, Func<T, U> func) where T : Control
         {
             if (control.InvokeRequired)
@@ -134,27 +148,23 @@ namespace Mr_Fish
                 }
             }
         }
-        public static void send_rightclick(int pID)
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, UIntPtr dwExtraInfo);
+
+        [Flags]
+        public enum MouseEventFlags : uint
         {
-            const uint WM_KEYDOWN = 0x100;
-            const uint WM_SYSCOMMAND = 0x018;
-            const uint WM_KEYUP = 0x0101;
-            const uint SC_CLOSE = 0x053;
-            const uint WM_RBUTTONDOWN = 0x0204;
-            const uint WM_RBUTTONUP = 0x0205;
-            const uint WM_ACTIVE = 0x0006;
+            MOUSEEVENTF_RIGHTDOWN = 0x0008,
+            MOUSEEVENTF_RIGHTUP = 0x0010,
+        }
 
-            Process p = Process.GetProcessById(pID);
-            IntPtr windowHandle = p.MainWindowHandle;
+        public static void send_rightclick()
+        {
+            // Simulate right mouse button down
+            mouse_event((uint)MouseEventFlags.MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, UIntPtr.Zero);
 
-            //IntPtr result3 = PostMessage(WindowToFind, WM_KEYDOWN, ((IntPtr)k), (IntPtr)0);
-            //IntPtr result4 = PostMessage(WindowToFind, WM_KEYUP, ((IntPtr)k), (IntPtr)0);
-            //IntPtr result0 = PostMessage(WindowToFind, WM_ACTIVE, ((IntPtr)0), (IntPtr)0);
-            //IntPtr result1 = PostMessage(WindowToFind, WM_KEYDOWN, ((IntPtr)k), (IntPtr)0);
-            //IntPtr result2 = PostMessage(WindowToFind, WM_KEYUP, ((IntPtr)k), (IntPtr)0);
-            IntPtr result3 = PostMessage(windowHandle, WM_RBUTTONDOWN, ((IntPtr)0), (IntPtr)0);
-            IntPtr result4 = PostMessage(windowHandle, WM_RBUTTONUP, ((IntPtr)0), (IntPtr)0);
-
+            // Simulate right mouse button up
+            mouse_event((uint)MouseEventFlags.MOUSEEVENTF_RIGHTUP, 0, 0, 0, UIntPtr.Zero);
         }
 
         private void formatStatusText()
@@ -250,6 +260,7 @@ namespace Mr_Fish
             botThread.IsBackground = true;
             botThread.Start();
             startTime = DateTime.Now;
+            lblAbout.Visible = false;
             formatStatusText();
             updateStartStopButtons();
         }
@@ -261,6 +272,7 @@ namespace Mr_Fish
                 botThread.Abort();
                 botThread = null;
                 tssl_status.Text = "Inactive";
+                lblAbout.Visible = true;
                 updateStartStopButtons();
             } catch { };
         }
@@ -269,7 +281,13 @@ namespace Mr_Fish
             highVal = 0;
             lbl_maxVol.Text = highVal.ToString();
         }
-    } 
+
+        private void lblAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MCAutoFish.about aboutForm = new MCAutoFish.about();
+            aboutForm.ShowDialog();
+        }
+    }
 
     public class Item
     {
